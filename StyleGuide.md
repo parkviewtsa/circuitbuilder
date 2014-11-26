@@ -1,5 +1,6 @@
-***I copied this over directly from last year's project; ignore things that are
-irrelevant.***
+*I copied this over directly from last year's project; ignore things that are
+irrelevant, or reminders directed at specific people (Craig!) who are no
+longer on the team.*
 
 Style Guide
 ===========
