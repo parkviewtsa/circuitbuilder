@@ -1,0 +1,12 @@
+ROADMAP (What goes where)
+
+All source code goes in /src.
+All Java source code goes in /src/java
+/src/java is organised as a set of Java packages.
+All Java source that we write goes in /src/java/cb
+/src/java/cb/ui (package cb.ui) is for GUI, not including the actual circuit diagram.
+/src/java/cb/desc (package cb.desc) is for the in-memory DESCription of the circuit.
+/src/java/cb/layout (package cb.layout) is for layout and SVG generation.
+/src/java/cb/simulate (package cb.simulate) is for simulation.
+
+[Feel free to add more sub-packages as needed.]
