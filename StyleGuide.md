@@ -1,3 +1,6 @@
+***I copied this over directly from last year's project; ignore things that are
+irrelevant.***
+
 Style Guide
 ===========
 
