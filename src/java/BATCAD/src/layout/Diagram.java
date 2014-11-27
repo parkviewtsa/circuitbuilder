@@ -15,35 +15,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- 
- /**
-  ** Javadoc
-  **/
 package layout;
 
-import java.io.*;
-import layout.*;
-import desc.*;
-
-
-  
-public class LayoutEngine {
-
-  Branch[] curveStage (Circuit circ) {
-    ;
-  }
-  
-  SegmentMatrix squareStage (Branch[] branchList) {
-    ;
-  }
-  
-  Diagram placementStage (SegmentMatrix matrix, Branch[] components) {
-    ;
-  }
-  
-  void print (Diagram d, FileWriter f) {
-    ;
-  }
-
+/**
+ *
+ * @author Brent
+ */
+public class Diagram {
+    
 }
- 
