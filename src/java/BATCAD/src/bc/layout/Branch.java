@@ -20,6 +20,11 @@ package layout;
 /**
  *
  * @author Brent
+ * class Branch represents a branch of the circuit in the curve stage.
+ * It needs to indicate which components belong on it and how it connects to other branches.
+ * IDEA: Since we don't want to waste coding on a Junction class, number the junctions in the
+ * diagram and indicate which junctions the branch connects to at its positive and negative
+ * ends.
  */
 public class Branch {
     
