@@ -3,11 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/private/TSA/circuitbuilder/src/java/BATCAD/src/layout/SegmentMatrix.java</file>
-            <file>file:/F:/private/TSA/circuitbuilder/src/java/BATCAD/src/layout/LayoutEngine.java</file>
-            <file>file:/F:/private/TSA/circuitbuilder/src/java/BATCAD/src/layout/Branch.java</file>
-            <file>file:/F:/private/TSA/circuitbuilder/src/java/BATCAD/src/desc/Circuit.java</file>
-            <file>file:/F:/private/TSA/circuitbuilder/src/java/BATCAD/src/layout/Diagram.java</file>
+            <file>file:/F:/TSA/circuitbuilder/src/java/BATCAD/src/bc/layout/Branch.java</file>
         </group>
     </open-files>
 </project-private>
