@@ -20,12 +20,37 @@ package layout;
 /**
  *
  * @author Brent
- * class Branch represents a branch of the circuit in the curve stage.
+ * 
+ * Class Branch represents a branch of the circuit in the curve stage.
  * It needs to indicate which components belong on it and how it connects to other branches.
  * IDEA: Since we don't want to waste coding on a Junction class, number the junctions in the
  * diagram and indicate which junctions the branch connects to at its positive and negative
  * ends.
  */
 public class Branch {
+    Component[] components;
+    int posEnd;
+    int negEnd;
     
+    int getNumberOfLineSegments () {
+        /**
+         * Figure out how many line segments will be needed to draw the branch.
+         * If the branch is on the inside, only one
+         * Otherwise (usually) three.
+         */
+    }
+    
+    Branch[] getParallelBranches (Branch[] allBranches) {
+        Branch[] res; //result
+        /*
+         * Gokul -- since you're learning loops in Java, this section of the
+         * code might be a useful exercise.
+         * 
+         * Using a loop, search through allBranches and test each branch to see
+         * if it is parallel to the current one (the one of which this is a
+         * method - that is, "this". (If it is parallel, it will have the same
+         * negEnd and posEnd.) If it is, append it to res.
+         */
+        return res;
+    }
 }
