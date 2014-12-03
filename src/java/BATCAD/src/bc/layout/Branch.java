@@ -28,16 +28,32 @@ package layout;
  * ends.
  */
 public class Branch {
+    Branch[] master;
+    int id;
     Component[] components;
     int posEnd;
     int negEnd;
     
+    Branch parent () {
+        for (int i=0; i<master.length; i++) {
+            if (master[i].negEnd == this.posEnd) {
+                return master[i];
+            }
+        }
+    }
+    
     int getNumberOfLineSegments () {
         /**
          * Figure out how many line segments will be needed to draw the branch.
-         * If the branch is on the inside, only one
-         * Otherwise (usually) three.
+         * If the branch is on the outside, three
+         * Otherwise (usually) one
          */
+        Branch[] parallels = this.getParallelBranches(master);
+        if (parallels[parallels.length].id == this.id) {
+            return 3;
+        } else {
+            return 1;
+        }
     }
     
     Branch[] getParallelBranches (Branch[] allBranches) {
