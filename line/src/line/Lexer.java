@@ -10,6 +10,15 @@ import java.io.*;
 
 package line;
 
+public enum TokenType {
+  DELIM,
+  QUOTED_SYM,
+  NATIVE_SYM,
+  NUMBER,
+  STRING,
+  IDENTIFIER
+}
+
 class Lexer {
 
   ArrayList<String> tokenize (FileReader in) throws IOException {
@@ -33,21 +42,20 @@ class Lexer {
     return list;
   }
 
-  String classifyToken (String token) {
+  TokenType classifyToken (String token) {
     char firstChar = token.charAt(0);
     if (token == '(' || token == ')') {
-      return "delimiter";
+      return DELIM;
     } else if (firstChar == '\'') {
-      return "quoted_symbol";
+      return QUOTED_SYM;
     } else if (firstChar == '_') {
-      return "native_symbol";
+      return NATIVE_SYM;
     } else if (Character.isDigit(firstChar)) {
-      return "number";
+      return NUMBER;
     } else if (firstChar == '\"') {
-      return "string";
-    }
-    else {
-      return "identifier";
+      return STRING;
+    } else {
+      return IDENTIFIER;
     }
   }
 
