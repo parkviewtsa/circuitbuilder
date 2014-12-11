@@ -6,18 +6,26 @@
 package bc;
 
 import bc.gui.*;
+import bc.file.*;
+import bc.layout.*;
+import bc.desc.*;
 
-/**
- *
- * @author Asimm
- */
 public class Application {
 
-  /**
-   * @param args the command line arguments
-   */
+  public static FileController fc;
+  public static Circuit activeCircuit;
+  public static Diagram renderer;
+  public static AppWindow mainWindow;
+
   public static void main (String[] args) {
-    AppWindow mainWindow = new AppWindow();
+    fc = new FileController();
+    /*String filename = processArgs(args).filename;
+    if (filename) activeCircuit = fc.load(filename);
+    else*/ activeCircuit = new Circuit();
+
+    renderer = new Diagram(activeCircuit);
+
+    mainWindow = new AppWindow();
   }
 
 }

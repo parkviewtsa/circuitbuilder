@@ -2,6 +2,6 @@ package bc.renderer;
 
 import javax.swing.*;
 
-class SVGRenderer extends JPanel {
+public class SVGCanvas extends JPanel {
   // TODO code SVG renderer here
 }
