@@ -13,15 +13,16 @@ import bc.desc.*;
 public class Application {
 
   public static FileController fc;
-  public static Circuit activeCircuit;
+  public static ArrayList<Circuit> openCircuits;
   public static Diagram renderer;
   public static AppWindow mainWindow;
 
   public static void main (String[] args) {
     fc = new FileController();
+    openCircuits = new ArrayList();
     /*String filename = processArgs(args).filename;
     if (filename) activeCircuit = fc.load(filename);
-    else*/ activeCircuit = new Circuit();
+    else*/ openCircuits.add(new Circuit());
 
     renderer = new Diagram(activeCircuit);
 

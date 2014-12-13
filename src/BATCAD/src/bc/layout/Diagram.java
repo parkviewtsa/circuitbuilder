@@ -1,9 +1,11 @@
 package bc.layout;
 
+import oracle.xml.parser.v2.*;
+
 import bc.renderer.*;
 import bc.desc.*;
 
-public class Diagram {
+public class Diagram extends SVGDocument {
 
   private Circuit circuit;
   private SVGCanvas canvas;
@@ -17,6 +19,8 @@ public class Diagram {
     return canvas;
   }
 
-  //public void draw () {}
+  public void draw () {
+    
+  }
 
 }
