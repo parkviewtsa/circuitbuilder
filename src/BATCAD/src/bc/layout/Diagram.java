@@ -1,6 +1,6 @@
 package bc.layout;
 
-import oracle.xml.parser.v2.*;
+import org.w3c.dom.*;
 
 import bc.renderer.*;
 import bc.desc.*;
@@ -20,7 +20,11 @@ public class Diagram extends SVGDocument {
   }
 
   public void draw () {
-    
+    Component[] c = circuit.components;
+    for (i=0; i<c.length; i++) {
+      drawComponent(c[i]);
+    }
+    // TODO code line drawing here
   }
 
 }

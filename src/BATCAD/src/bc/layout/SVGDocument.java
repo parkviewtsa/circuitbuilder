@@ -1,5 +1,7 @@
 package bc.layout;
 
-public class SVGDocument extends XMLDocument {
-  
+import org.w3c.dom.*;
+
+public class SVGDocument extends Document {
+
 }
