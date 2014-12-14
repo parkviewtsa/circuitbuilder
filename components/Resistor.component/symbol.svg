@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--?xml-stylesheet href="styles.css" type="text/css"?-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="20">
+  <g class="-bc-symbol resistor">
+    <polyline
+      points="0,10 3,0 9,20 15,0 21,20 27,0 33,20 39,0 45,20 48,10"
+      style="stroke:black;fill:none;stroke-width:2"
+    />
+  </g>
+</svg>

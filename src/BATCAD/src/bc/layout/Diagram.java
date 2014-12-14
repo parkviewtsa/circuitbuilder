@@ -21,10 +21,13 @@ public class Diagram extends SVGDocument {
 
   public void draw () {
     Component[] c = circuit.components;
-    for (i=0; i<c.length; i++) {
+    for (int i=0; i<c.length; i++) {
       drawComponent(c[i]);
+      for (int j=0; j<c.terminals.length; j++)
+      if (c.terminals[j].type == POSITIVE) {
+        
+      }
     }
-    // TODO code line drawing here
   }
 
 }

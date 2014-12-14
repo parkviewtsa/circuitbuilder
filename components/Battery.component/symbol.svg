@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--?xml-stylesheet href="styles.css" type="text/css"?-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="100">
+  <g class="-bc-symbol battery" data-term-pos="x:20;y:-25"
+    data-term-neg="x:20;y:25" style="stroke:black;fill:none;stroke-width:2px">
+    <polyline points="0,20 40,20" />
+    <polyline points="10,30 30,30" />
+    <polyline points="0,40 40,40" />
+    <polyline points="10,50 30,50" />
+    <g id="plus-sign" transform="translate(0, -2)">
+      <polyline points="5,10 15,10" />
+      <polyline points="10,5 10,15" />
+    </g>
+  </g>
+</svg>
