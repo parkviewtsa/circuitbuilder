@@ -33,6 +33,8 @@ public class Component {
   SVGDocument symbol;
   float width;
   float height;
+  float xPos; // centre of component
+  float yPos;
   Orientation orientation;
 
   Terminal[] terminals;

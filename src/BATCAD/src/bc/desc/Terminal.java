@@ -10,10 +10,10 @@ public enum TerminalType {
 public class Terminal {
   Circuit circ;
   Component component;
-  TerminalType type;
-  float xPos; // relative to centre of component
-  float yPos;
-  Terminal dest;
+  public TerminalType type;
+  public float xPos; // relative to centre of component
+  public float yPos;
+  public Terminal dest;
 
   public Terminal (Component comp, Circuit c) {
     component = comp;
@@ -29,6 +29,14 @@ public class Terminal {
     } else {
       dest = to;
       to.dest = this;
+    }
+
+    public float getGlobalXPos () {
+      return xPos + component.xPos;
+    }
+
+    public float getGlobalYPos () {
+      return yPos + component.yPos;
     }
   }
 }
