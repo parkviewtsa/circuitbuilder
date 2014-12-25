@@ -52,11 +52,12 @@ public class Diagram extends SVGDocument {
 
           /* TODO:
            * Eventually this will be a conditional based on user settings. */
+          float p_x, p_y, q_x, q_y;
           if (true) {
-            float p_x = hcenter-(_height/2);
-            float q_x = hcenter+(_height/2);
-            float p_y = from_y;
-            float q_y = to_y;
+            p_x = hcenter-(_height/2);
+            q_x = hcenter+(_height/2);
+            p_y = from_y;
+            q_y = to_y;
           }
 
           g.createElement("polyline").setAttribute("points",
