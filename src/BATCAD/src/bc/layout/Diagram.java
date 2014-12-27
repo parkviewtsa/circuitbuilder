@@ -37,16 +37,29 @@ public class Diagram extends SVGDocument {
         from_y = term.getGlobalYPos();
         to_x = term.dest.getGlobalXPos();
         to_y = term.dest.getGlobalYPos();
+
         if (from_x == to_x || from_y == to_y) {
+          /**
+           * If the two components we are trying to connect line up either
+           * horizontally or vertically, it's easy. We simply draw a line from
+           * one terminal to the other.
+           **/
+
           g.createElement("polyline").setAttribute("points",
             from_x.toString() + "," + from_y.toString() + " " +
             to_x.toString() + "," + to_x.toString()
           );
         } else {
+          /**
+           * Otherwise, we have to do a little more work. 
+           **/
+
           float left = Math.min(from_x, to_x);
           float right = Math.max(from_x, to_x);
           float top = Math.min(from_y, to_y);
           float bottom = Math.max(from_y, to_y);
+          float _width = right-left;
+          float _height = bottom-top;
           float hcenter = (left+right)/2;
           float vcenter = (top+bottom)/2;
 
