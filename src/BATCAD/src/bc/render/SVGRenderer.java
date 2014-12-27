@@ -32,12 +32,9 @@ public class SVGRenderer implements GLEventListener {
 
   public void display (GLAutoDrawable drawable) {
     // REQUIRED METHOD (part of GLEventListener)
-
-    /* TODO:
-     * All rendering code goes in here. You may delegate out portions of the
-     * rendering process to other methods, but always pass them `drawable` as
-     * an argument; DO NOT attempt to use the `canvas` field of this class.
-     */
+    
+    GL2 gl = drawable.getGL().getGL2();
+    //start rendering here
   }
 
 
