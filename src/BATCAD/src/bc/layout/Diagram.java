@@ -1,5 +1,6 @@
 package bc.layout;
 
+import bc.Application;
 import org.w3c.dom.*;
 import java.io.*;
 import javax.xml.transform.*;
@@ -33,9 +34,9 @@ public class Diagram {
   public void draw() {
 	Component[] c = circuit.components;
 	float from_x, from_y, to_x, to_y;
-	for (int i = 0; i < c.length; i++) {
-	  drawComponent(c[i]);
-	  for (Terminal term : c[i].terminals) {
+	for (Component c1 : c) {
+	  drawComponent(c1);
+	  for (Terminal term : c1.terminals) {
 		if (term.type == POSITIVE) {
 		  from_x = term.getGlobalXPos();
 		  from_y = term.getGlobalYPos();
@@ -47,9 +48,9 @@ public class Diagram {
 			 * If the two components we are trying to connect line up either
 			 * horizontally or vertically, it's easy. We simply draw a line from
 			 * one terminal to the other.
-             *
+			 *
 			 */
-			
+
 			Element e = doc.createElement("polyline");
 			e.setAttribute("points",
 					from_x + "," + from_y + " "
@@ -59,7 +60,7 @@ public class Diagram {
 		  } else {
 			/**
 			 * Otherwise, we have to do a little more work.
-                     *
+			 *
 			 */
 
 			float left = Math.min(from_x, to_x);
@@ -92,9 +93,15 @@ public class Diagram {
 		  }
 		}
 	  }
+	  Application.renderer.mgr.set_diagram(this);
 	}
   }
 
+  private void drawComponent(Component c) {
+	throw new UnsupportedOperationException("Not supported yet.");
+	//To change body of generated methods, choose Tools | Templates.
+  }
+  
   public void outputSVGToConsole() {
 	try {
 	  DOMSource domSource = new DOMSource(doc);
@@ -107,11 +114,6 @@ public class Diagram {
 	  System.out.println("ERROR: TransformerException");
 	  e.printStackTrace();
 	}
-  }
-
-  private void drawComponent(Component c) {
-	throw new UnsupportedOperationException("Not supported yet.");
-	//To change body of generated methods, choose Tools | Templates.
   }
 
 }

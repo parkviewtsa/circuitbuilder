@@ -17,7 +17,6 @@ public class Application {
 
   public static FileController fc;
   public static ArrayList<Circuit> openCircuits;
-  public static Diagram diagram;
   public static SVGRenderer renderer;
   public static AppWindow mainWindow;
 
@@ -27,8 +26,9 @@ public class Application {
     /*String filename = processArgs(args).filename;
     if (filename) activeCircuit = fc.load(filename);
     else*/ openCircuits.add(new Circuit());
-
-    diagram = new Diagram(openCircuits.get(0));
+	
+	renderer = (new SVGRenderer()).setup();
+	renderer.mgr.set_diagram(openCircuits.get(0).diagram);
 
     mainWindow = new AppWindow();
   }

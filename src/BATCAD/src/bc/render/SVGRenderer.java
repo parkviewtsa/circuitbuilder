@@ -39,12 +39,12 @@ public class SVGRenderer implements GLEventListener {
    *** DO NOT PUT ANYTHING OTHER THAN GL METHODS BELOW THIS POINT ***/
 
   // *** NOTE: GLAutoDrawable is a superclass of GLCanvas.
-  public draw_manager manager;
+  public draw_manager mgr;
   
   @Override
   public void init (GLAutoDrawable drawable) {
     // REQUIRED METHOD (part of GLEventListener)
-      manager = new draw_manager();
+      mgr = new draw_manager();
     /* TODO:
      * This is where initialisation code goes (obviously).
      */
@@ -60,9 +60,9 @@ public class SVGRenderer implements GLEventListener {
 	 * has changed. We could also potentially do the re-rendering of the diagram
 	 * asynchronously. */
 	
-	if (manager.updated) {
+	if (mgr.updated) {
 	  // Diagram has changed, re-render the buffer.
-	  cw = new draw_cw(manager);
+	  cw = new draw_cw(mgr);
 	}
 	
 	// Copy the buffer to the screen.

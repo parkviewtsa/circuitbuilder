@@ -1,6 +1,7 @@
 package bc.render;
 // not quite sure if all these imports are necessary, but they can't hurt so just clean them up later
 
+import bc.layout.Diagram;
 import java.awt.*;
 import java.util.Map;
 import javax.swing.*;
@@ -93,18 +94,14 @@ public class draw_manager {
 	}
   }
   
-  public void parseSVG (Document svg,
-	Map<String[], Map<String, String>[]>[] css)
-  {
+  public void set_diagram (Diagram diagram) {
 	/* TODO:
 	 * Here is where you'll process the SVG (which will be passed to this method
-     * as a DOM) into imgprotos and add them to the draw_manager.
+     * as a DOM, located in the argument's doc field) into imgprotos and add
+	 * them to the draw_manager.
 	 *
-	 * A NOTE ON CSS: I am passing you the CSS as a map mapping an array of
-     * strings (representing selectors) to an array of further string-string
-     * maps (representing the style rules). You will need to parse and apply
-     * those style rules to the appropriate SVG elements before decomposing them
-     * into primitives. If you need help with SVG or CSS, let me know.
+	 * A NOTE ON CSS: We have no need to do external CSS, but each SVG element
+	 * may have a style attribute with CSS in it.
 	 */
   }
 }

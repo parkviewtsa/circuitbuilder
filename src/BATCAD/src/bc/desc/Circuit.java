@@ -17,10 +17,17 @@
  */
 package bc.desc;
 
+import bc.layout.Diagram;
+
 /**
  *
  * @author Brent
  */
 public class Circuit {
-  public Component[] components;  
+  public Component[] components; 
+  public Diagram diagram;
+  
+  public Circuit () {
+	diagram = new Diagram(this);
+  }
 }
