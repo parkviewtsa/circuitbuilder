@@ -7,18 +7,14 @@ Style Guide
 
 We are using [Google's style guide](http://code.google.com/p/google-styleguide/),
 with a couple modifications.
-The most unusual/annoying difference from the way we usually code is: **USE SPACES
-FOR INDENT**. 2 of them, to be precise. It's easy enough to configure any text editor
-I know of to automatically emit spaces when you press Tab, and if you use Shift+Tab
-(Opt+Shift+Tab on OS X), the editor will remove them too. Other rules that I KNOW some
-of you violate are:
 
+ * Use tabs instead of spaces.
  * C++ extension is `.cc`, not `.cpp`, `.cxx` or anything like that.
  * Objective-C extension is `.m`.
  * All headers (regardless of language) use `.h`.
  * Function declarations look like this as far as spacing: `type functionName (type arg1, type arg2) {`
  THE BRACE GOES ON **THE SAME LINE** BUT **WITH A SPACE**!
- * The only exception to this is `int main`, which puts its brace on a separate line.
+ * If the function declaration requires multiple lines, the brace should go on its own line.
  * A block of code only ends with a semicolon if there is an assignment `=` in the line that begins the
  block of code. This is only an issue in JavaScript. In other languages, NO SEMICOLONS AFTER BRACES.
  *Example:* `this.method = function () { ... };` but `function foo () { ... }`
