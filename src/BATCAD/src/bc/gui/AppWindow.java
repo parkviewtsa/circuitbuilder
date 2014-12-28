@@ -14,7 +14,7 @@ import bc.Application;
 //import bc.simulation.*;
 
 public class AppWindow extends JFrame {
-  SVGCanvas canvas;
+  SVGRenderer canvas;
 
   public AppWindow ()  {
     setTitle("Testing - BATCAD 12w50a (DEVELOPMENT)");

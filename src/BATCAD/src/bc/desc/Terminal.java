@@ -1,11 +1,6 @@
 package bc.desc;
 
-import bc.error.connection.*;
-
-
-public enum TerminalType {
-  POSITIVE, NEGATIVE
-}
+import bc.error.*;
 
 public class Terminal {
   Circuit circ;

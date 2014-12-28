@@ -7,7 +7,7 @@ import javax.media.opengl.awt.*;
 
 public class SVGRenderer implements GLEventListener {
 
-  private GLCanvas canvas;
+  private GLJPanel canvas;
 
   public SVGRenderer () {
     GLProfile glp = GLProfile.getDefault();
@@ -35,6 +35,8 @@ public class SVGRenderer implements GLEventListener {
 
   // *** NOTE: GLAutoDrawable is a superclass of GLCanvas.
   public draw_manager manager;
+  
+  @Override
   public void init (GLAutoDrawable drawable) {
     // REQUIRED METHOD (part of GLEventListener)
       manager = new draw_manager();
@@ -42,7 +44,8 @@ public class SVGRenderer implements GLEventListener {
      * This is where initialisation code goes (obviously).
      */
   }
-
+  
+  @Override
   public void display (GLAutoDrawable drawable) {
     // REQUIRED METHOD (part of GLEventListener)
 	
@@ -59,7 +62,7 @@ public class SVGRenderer implements GLEventListener {
 	// Copy the buffer to the screen.
   }
 
-
+  @Override
   public void dispose (GLAutoDrawable drawable) {
     // REQUIRED METHOD (part of GLEventListener)
 
@@ -67,7 +70,8 @@ public class SVGRenderer implements GLEventListener {
      * Cleanup code.
      */
   }
-
+  
+  @Override
   public void reshape (GLAutoDrawable drawable,
     int x, int y, int width, int height) {
     // REQUIRED METHOD (part of GLEventListener)
