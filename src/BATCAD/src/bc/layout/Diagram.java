@@ -23,6 +23,7 @@ public class Diagram {
 	renderer = new SVGRenderer();
 	g = doc.createElement("g");
 	g.setAttribute("class", "-bc-circ-diagram");
+	doc.appendChild(g);
   }
 
   public SVGRenderer getSVGRenderer() {
