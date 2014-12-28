@@ -8,26 +8,44 @@ import javax.media.opengl.awt.*;
 public class SVGRenderer implements GLEventListener {
 
   private GLCanvas canvas;
+  private SVGPrimitive[] primitives;
+
+  public SVGPrimitive[] processSVG (SVGDocument doc,
+    Map<String[], Map<String, String>[]>) {
+    /* TODO:
+     * Here is where you'll process the SVG (which will be passed to this method
+     * as a DOM) and store it in the `primitives` field of this class. You may
+     * change the type of `primitives` if you would like to store the primitives
+     * differently, but please change the return type of this method to match.
+     *
+     * IMPORTANT: This method will only be called once for each time the
+     * diagram is modified by the user, whereas display() will be called
+     * once per frame (60 times a second or whatever the computer can handle).
+     * Get the SVG into a much simpler format here -- process all CSS styling
+     * rules, and get it into a format that basically consists of a series of
+     * lines and curves, each with its own colour and stroke-width info. You
+     * will then use the value stored in `primitives` to render to the screen in
+     * the display() method.
+     *
+     * A NOTE ON CSS: I am passing you the CSS as a map mapping an array of
+     * strings (representing selectors) to an array of further string-string
+     * maps (representing the style rules). You will need to parse and apply
+     * those style rules to the appropriate SVG elements before decomposing them
+     * into primitives. If you need help with SVG or CSS, let me know.
+     */
+
+     return primitives;
+  }
 
   public SVGRenderer () {
     GLProfile glp = GLProfile.getDefault();
     GLCapabilities caps = new GLCapabilities(glp);
-    canvas = new GLJPanel(caps);   
-  }
-  
-  public SVGRenderer setup () {
-	/* TODO:
-	 * NetBeans wanted this call out of the constructor,  so here we go.
-	 * This will now have to be called on every new SVGRenderer. */
-	
-	/* Once `this` is added as an event listener, the methods below will be
+    canvas = new GLCanvas(caps);
+
+    /* Once `this` is added as an event listener, the methods below will be
      * called with `canvas` as their argument whenever a GLEvent occurs
      * (GLEvents will be part of the rendering loop, read the tutorials). */
     canvas.addGLEventListener(this);
-	
-	/* returns itself so that we can call
-	 * SVGRenderer foo = (new SVGRenderer()).setup(); */
-	return this;
   }
 
   /*** GL METHODS START HERE ***
@@ -45,18 +63,9 @@ public class SVGRenderer implements GLEventListener {
 
   public void display (GLAutoDrawable drawable) {
     // REQUIRED METHOD (part of GLEventListener)
-	
-	/* The rendering loop here will be called 60x a second or so. To reduce
-	 * resource load, we should render the diagram to a buffer, then display it
-	 * to the screen every frame, but only re-render the buffer when the diagram
-	 * has changed. We could also potentially do the re-rendering of the diagram
-	 * asynchronously. */
-	
-	if (manager.updated) {
-	  // Diagram has changed, re-render the buffer.
-	}
-	
-	// Copy the buffer to the screen.
+
+    GL2 gl = drawable.getGL().getGL2();
+    //start rendering here
   }
 
 
