@@ -18,8 +18,8 @@ public class SVGRenderer implements GLEventListener {
      * change the type of `primitives` if you would like to store the primitives
      * differently, but please change the return type of this method to match.
      *
-     * IMPORTANT: This method will only be called once for each diagram (ie,
-     * when the user modifies the diagram), whereas display() will be called
+     * IMPORTANT: This method will only be called once for each time the
+     * diagram is modified by the user, whereas display() will be called
      * once per frame (60 times a second or whatever the computer can handle).
      * Get the SVG into a much simpler format here -- process all CSS styling
      * rules, and get it into a format that basically consists of a series of
