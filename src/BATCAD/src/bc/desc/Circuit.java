@@ -22,5 +22,5 @@ package bc.desc;
  * @author Brent
  */
 public class Circuit {
-  Component[] components;  
+  public Component[] components;  
 }
