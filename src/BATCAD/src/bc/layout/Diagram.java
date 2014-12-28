@@ -46,8 +46,8 @@ public class Diagram extends SVGDocument {
            **/
 
           g.createElement("polyline").setAttribute("points",
-            from_x.toString() + "," + from_y.toString() + " " +
-            to_x.toString() + "," + to_x.toString()
+            from_x + "," + from_y + " " +
+            to_x + "," + to_x
           );
         } else {
           /**
@@ -72,12 +72,12 @@ public class Diagram extends SVGDocument {
             p_y = from_y;
             q_y = to_y;
           }
-
+          
           g.createElement("polyline").setAttribute("points",
-           from_x.toString() + "," + from_y.toString() + " " +
-           p_x.toString() + "," + p_y.toString() + " " +
-           q_x.toString() + "," + q_y.toString() + " " +
-           to_x.toString() + "," + to_x.toString()
+           from_x + "," + from_y + " " +
+           p_x + "," + p_y + " " +
+           q_x + "," + q_y + " " +
+           to_x + "," + to_x
           );
         }
       }
