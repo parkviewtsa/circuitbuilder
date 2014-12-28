@@ -8,7 +8,7 @@ import javax.swing.*;
 
 import bc.desc.*;
 import bc.layout.*;
-import bc.renderer.*;
+import bc.render.*;
 import bc.Application;
 //import bc.report.*;
 //import bc.simulation.*;

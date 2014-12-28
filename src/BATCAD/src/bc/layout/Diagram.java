@@ -6,7 +6,7 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.*;
 import javax.xml.transform.stream.*;
 
-import bc.renderer.*;
+import bc.render.*;
 import bc.desc.*;
 
 public class Diagram extends SVGDocument {
