@@ -21,22 +21,21 @@ public class Terminal {
   }
 
   public void connect (Terminal to, boolean allowOverride)
-  throws InvalidPolarityError, ConnectionOverrideError {
-    if (type == to.type) {
-      throw new InvalidPolarityError(component.abbr);
-    } else if (dest || to.dest && !allowOverride) {
-      throw new ConnectionOverrideError();
-    } else {
+  throws InvalidPolarityError, ConnectionOverrideError
+  {
+    if (type == to.type) throw new InvalidPolarityError(component.abbr);
+    else if (dest || to.dest && !allowOverride) throw new ConnectionOverrideError();
+    else
+    {
       dest = to;
       to.dest = this;
-    }
+    };
+  };
+  public float getGlobalXPos () {
+    return xPos + component.xPos;
+  }
 
-    public float getGlobalXPos () {
-      return xPos + component.xPos;
-    }
-
-    public float getGlobalYPos () {
-      return yPos + component.yPos;
-    }
+  public float getGlobalYPos () {
+    return yPos + component.yPos;
   }
 }
