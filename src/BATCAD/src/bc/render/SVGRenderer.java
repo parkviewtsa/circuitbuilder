@@ -1,4 +1,4 @@
-package bc.renderer;
+package bc.render;
 
 import java.awt.*;
 import javax.swing.*;
@@ -52,10 +52,10 @@ public class SVGRenderer implements GLEventListener {
    *** DO NOT PUT ANYTHING OTHER THAN GL METHODS BELOW THIS POINT ***/
 
   // *** NOTE: GLAutoDrawable is a superclass of GLCanvas.
-
+  public draw_manager manager;
   public void init (GLAutoDrawable drawable) {
     // REQUIRED METHOD (part of GLEventListener)
-
+      manager = new draw_manager();
     /* TODO:
      * This is where initialisation code goes (obviously).
      */
@@ -80,7 +80,12 @@ public class SVGRenderer implements GLEventListener {
   public void reshape (GLAutoDrawable drawable,
     int x, int y, int width, int height) {
     // REQUIRED METHOD (part of GLEventListener)
-
+      
+//** Nothing needs to change except:
+//	glViewport(0,0,width,height);
+//      but maybe Swift's window system & Java's GL bindings need more work
+//**
+      
     /* TODO:
      * This method is called whenever the user resizes the window.
      */
