@@ -9,13 +9,16 @@ import bc.gui.*;
 import bc.file.*;
 import bc.layout.*;
 import bc.desc.*;
+import bc.render.SVGRenderer;
+
 import java.util.ArrayList;
 
 public class Application {
 
   public static FileController fc;
   public static ArrayList<Circuit> openCircuits;
-  public static Diagram renderer;
+  public static Diagram diagram;
+  public static SVGRenderer renderer;
   public static AppWindow mainWindow;
 
   public static void main (String[] args) {
@@ -25,7 +28,7 @@ public class Application {
     if (filename) activeCircuit = fc.load(filename);
     else*/ openCircuits.add(new Circuit());
 
-    renderer = new Diagram(openCircuits.get(0));
+    diagram = new Diagram(openCircuits.get(0));
 
     mainWindow = new AppWindow();
   }

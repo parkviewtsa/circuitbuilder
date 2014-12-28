@@ -8,6 +8,7 @@ import javax.media.opengl.awt.*;
 public class SVGRenderer implements GLEventListener {
 
   private GLJPanel canvas;
+  private draw_cw cw;
 
   public SVGRenderer () {
     GLProfile glp = GLProfile.getDefault();
@@ -28,6 +29,10 @@ public class SVGRenderer implements GLEventListener {
 	/* returns itself so that we can call
 	 * SVGRenderer foo = (new SVGRenderer()).setup(); */
 	return this;
+  }
+  
+  public GLJPanel getSVGCanvas () {
+	return canvas;
   }
 
   /*** GL METHODS START HERE ***
@@ -57,6 +62,7 @@ public class SVGRenderer implements GLEventListener {
 	
 	if (manager.updated) {
 	  // Diagram has changed, re-render the buffer.
+	  cw = new draw_cw(manager);
 	}
 	
 	// Copy the buffer to the screen.
