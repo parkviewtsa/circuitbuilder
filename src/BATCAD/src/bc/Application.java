@@ -9,6 +9,7 @@ import bc.gui.*;
 import bc.file.*;
 import bc.layout.*;
 import bc.desc.*;
+import java.util.ArrayList;
 
 public class Application {
 
@@ -24,7 +25,7 @@ public class Application {
     if (filename) activeCircuit = fc.load(filename);
     else*/ openCircuits.add(new Circuit());
 
-    renderer = new Diagram(activeCircuit);
+    renderer = new Diagram(openCircuits.get(0));
 
     mainWindow = new AppWindow();
   }

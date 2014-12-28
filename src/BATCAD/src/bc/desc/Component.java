@@ -17,26 +17,22 @@
 */
 package bc.desc;
 
-import line.*;
-import bc.layout.SVGDocument;
-
-public enum Orientation {
-  NORMAL, CLOCKWISE, COUNTER_CW, INVERTED
-}
+import org.w3c.dom.*;
 
 public class Component {
-  String name;
-  String abbr;
-  int globalID;
-  int perTypeID;
+  
+  public String name;
+  public String abbr;
+  public int globalID;
+  public int perTypeID;
 
-  SVGDocument symbol;
-  float width;
-  float height;
-  float xPos; // centre of component
-  float yPos;
-  Orientation orientation;
+  public Document symbol;
+  public float width;
+  public float height;
+  public float xPos; // centre of component
+  public float yPos;
+  public Orientation orientation;
 
-  Terminal[] terminals;
-  LispExpression rulebook;
+  public Terminal[] terminals;
+  //LispExpression rulebook;
 }
