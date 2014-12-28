@@ -1,8 +1,15 @@
 package bc.render;
+// not quite sure if all these imports are necessary, but they can't hurt so just clean them up later
+import java.awt.*;
+import javax.swing.*;
+import javax.media.opengl.*;
+import javax.media.opengl.awt.*;
 public class draw_manager
 {
+    // This doesn't really do any rendering itself, but relies on draw_cw for that
     public class draw_instance
     {
+        // should be created and tracked by the Circuit Component class.
         float posx,posy;
         imgproto proto;
     }
@@ -28,5 +35,9 @@ public class draw_manager
             cur++;
         }
         for (; cur < instancecount; cur++) instances[cur] = prev[cur + 1];
+    }
+    public void DisplayToPanel (JPanel put_in)
+    {
+        draw_cw renderer = new draw_cw(this);
     }
 }
