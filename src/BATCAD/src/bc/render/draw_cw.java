@@ -14,30 +14,28 @@ public class draw_cw {
    * Figure out why NetBeans says GLPbuffer doesn't exist, when the JOGL docs
    * say it does, in javax.media.opengl.
    */
-  
-  public draw_cw (draw_manager what) {
+
+  public draw_cw(draw_manager what) {
 	/* This function will begin the rendering into an off-screen image, probably
 	 * into a context owned by draw_manager. */
-	
+
 	GL2 gl = buf.getGL().getGL2();
 	// start rendering here
-        for (int cur = 0; cur < what.instancecount; cur++)
-        {
-            draw_manager.draw_instance instance = what.instances[cur];
-            for (int subcur = 0; subcur < instance.proto.componentcount; subcur++)
-            {
-                draw_manager.imgcomponent component = instance.proto.components[subcur];
+	for (int cur = 0; cur < what.instancecount; cur++) {
+	  draw_manager.draw_instance instance = what.instances[cur];
+	  for (int subcur = 0; subcur < instance.proto.componentcount; subcur++) {
+		draw_manager.imgcomponent component = instance.proto.components[subcur];
                 // Calculate relative position and size.
-                // Issue draw commands.
-            };
-        };
+		// Issue draw commands.
+	  }
+	}
   }
 
   public GLPbuffer WaitForImage() {
 	/* This function will wait for the rendering to complete. This might be
 	 * called by the draw_manager. */
-      // something like "glFinish();", and done.
-      return buf;
-      // draw_manager will handle putting the buffer on-screen into the JPanel
+	// something like "glFinish();", and done.
+	return buf;
+	// draw_manager will handle putting the buffer on-screen into the JPanel
   }
 }

@@ -17,7 +17,7 @@
  */
 package bc.desc;
 
-import bc.layout.Diagram;
+import bc.layout.SVGExporter;
 
 /**
  *
@@ -25,9 +25,9 @@ import bc.layout.Diagram;
  */
 public class Circuit {
   public Component[] components; 
-  public Diagram diagram;
+  public SVGExporter diagram;
   
   public Circuit () {
-	diagram = new Diagram(this);
+	diagram = new SVGExporter(this);
   }
 }
