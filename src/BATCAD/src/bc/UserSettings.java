@@ -12,7 +12,7 @@ package bc;
 public class UserSettings {
   
   // Determine when to draw a 45-degree segment in a diagram.
-  float min90ARatio;
-  float max90ARatio;
+  public float min90ARatio;
+  public float max90ARatio;
   
 }

@@ -19,6 +19,7 @@ public class App {
   public static ArrayList<Circuit> openCircuits;
   public static SVGRenderer renderer;
   public static AppWindow mainWindow;
+  public static UserSettings userSettings;
 
   public static void main (String[] args) {
     fc = new FileController();

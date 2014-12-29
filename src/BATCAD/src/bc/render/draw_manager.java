@@ -12,13 +12,11 @@ import org.w3c.dom.Document;
 /**
  * An explanation on the rendering process.
  *
- * 1. A circuit is created.
- * 2. The application requests create_instance("imagefile.svg") from the
- * rendering subsystem.
- * 3. The renderer checks to see if that image is already in memory.
- * 4. If it isn't, the renderer loads the image from its source file and breaks
- * it into components.
- * 5. The draw_instance is made to link back to the image.
+ * 1. A circuit is created. 2. The application requests
+ * create_instance("imagefile.svg") from the rendering subsystem. 3. The
+ * renderer checks to see if that image is already in memory. 4. If it isn't,
+ * the renderer loads the image from its source file and breaks it into
+ * components. 5. The draw_instance is made to link back to the image.
  *
  * Whenever the renderer cycles, it looks through the instances and draws each
  * one's linked image prototype to a buffer, stepping through each component
@@ -175,7 +173,11 @@ public class draw_manager {
   public draw_instance[] instances;
   public int instancecount = 0;
 
-  public draw_instance create_instance (String imgpath) {
+  public draw_instance create_instance(String imgpath) {
+	/* TODO:
+	 * Create a version of this method that accepts an org.w3c.dom.Document. The
+	 * SVGs for components are loaded from files, but the wires are created
+	 * dynamically as Document objects. */
 	draw_instance[] prev = instances;
 	instances = new draw_instance[instancecount + 1];
 	for (int cur = 0; cur < instancecount; cur++) {
