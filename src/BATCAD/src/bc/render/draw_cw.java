@@ -21,10 +21,15 @@ public class draw_cw {
 	
 	GL2 gl = buf.getGL().getGL2();
 	// start rendering here
+        for (int cur = 0; cur < what.instances; cur++)
+        {
+            /* DRAW */
+        }
   }
 
-  public void WaitForImage() {
+  public GLPbuffer WaitForImage() {
 	/* This function will wait for the rendering to complete. This might be
 	 * called by the draw_manager. */
+      return buf;
   }
 }
