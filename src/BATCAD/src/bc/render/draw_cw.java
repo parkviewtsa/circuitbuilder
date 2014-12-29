@@ -23,13 +23,21 @@ public class draw_cw {
 	// start rendering here
         for (int cur = 0; cur < what.instancecount; cur++)
         {
-            /* DRAW */
-        }
+            draw_manager.draw_instance instance = what.instances[cur];
+            for (int subcur = 0; subcur < instance.proto.componentcount; subcur++)
+            {
+                draw_manager.imgcomponent component = instance.proto.components[subcur];
+                // Calculate relative position and size.
+                // Issue draw commands.
+            };
+        };
   }
 
   public GLPbuffer WaitForImage() {
 	/* This function will wait for the rendering to complete. This might be
 	 * called by the draw_manager. */
+      // something like "glFinish();", and done.
       return buf;
+      // draw_manager will handle putting the buffer on-screen into the JPanel
   }
 }

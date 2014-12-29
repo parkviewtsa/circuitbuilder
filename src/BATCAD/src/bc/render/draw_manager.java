@@ -82,8 +82,6 @@ public class draw_manager {
         public String loadedfrom; // avoid having duplicates of the same prototype
         public imgproto(String filepath)
         {
-            // if this one's already loaded, that one
-            
             // Load & parse the SVG
             // alloc some buffers 'n stuff
         }
@@ -141,15 +139,20 @@ public class draw_manager {
         {
             // Checks imgprotos to see if the SVG is already loaded
             // otherwise loads it anew 
+            boolean already = false;
             for (int cur = 0; cur < imgprotocount; cur++)
                 if (imgprotos[cur].loadedfrom == imgpath)
                 {
                     // great, it's already loaded, use the existing copy
                     proto = imgprotos[cur];
+                    already = true;
                     break;
                 };
-            proto = new imgproto(imgpath);
-            add_imgproto(proto); // keep track of it
+            if (!already)
+            {
+                proto = new imgproto(imgpath);
+                add_imgproto(proto); // keep track of it
+            };
         }
     }
     public draw_instance[] instances;
@@ -184,10 +187,11 @@ public class draw_manager {
          {
              boolean used = false;
              for (int a = 0; a < instancecount; a++)
-             {
-                 if (instances[a].proto == imgprotos[n]) used = true;
-                 break;
-             }
+                 if (instances[a].proto == imgprotos[n])
+                 {
+                     used = true;
+                     break;
+                 };
              if (!used)
              {
                  imgprotos[n].free();
@@ -196,7 +200,22 @@ public class draw_manager {
          }
      }
      
-     
+    public float p_x,p_y,p_w,p_h;//perspective
+    public void Zoom (float ratio)
+    {
+        // bigger ratio: zoom out
+        // smaller ratio: zoom in
+        p_w *= ratio;
+        p_h *= ratio;
+    };
+    public void Pan (float x, float y)
+    {
+        // positive: up | right
+        // negative: down | left
+        p_x += x;
+        p_y += y;
+    };
+    
     public void DisplayToPanel(JPanel put_in)
     {
 	draw_cw renderer = new draw_cw(this);
