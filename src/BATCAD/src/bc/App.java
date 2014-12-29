@@ -23,12 +23,10 @@ public class App {
   public static void main (String[] args) {
     fc = new FileController();
     openCircuits = new ArrayList();
-    /*String filename = processArgs(args).filename;
+	renderer = (new SVGRenderer()).setup();
+	/*String filename = processArgs(args).filename;
     if (filename) activeCircuit = fc.load(filename);
     else*/ openCircuits.add(new Circuit());
-	
-	renderer = (new SVGRenderer()).setup();
-	renderer.mgr.set_diagram(openCircuits.get(0).diagram);
 
     mainWindow = new AppWindow();
   }
