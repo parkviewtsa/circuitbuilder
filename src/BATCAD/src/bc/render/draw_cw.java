@@ -21,7 +21,7 @@ public class draw_cw {
 	
 	GL2 gl = buf.getGL().getGL2();
 	// start rendering here
-        for (int cur = 0; cur < what.instances; cur++)
+        for (int cur = 0; cur < what.instancecount; cur++)
         {
             /* DRAW */
         }

@@ -87,7 +87,7 @@ public class draw_manager {
             // Load & parse the SVG
             // alloc some buffers 'n stuff
         }
-        public static void free ()
+        public void free ()
         {
             
             // Free resources like GL buffers
@@ -112,15 +112,16 @@ public class draw_manager {
   void remove_imgproto (imgproto toremove)
   {
          imgproto[] prev = imgprotos;
-         imgprotos = new imgproto [imgprotos - 1];
+         imgprotos = new imgproto [imgprotocount - 1];
          int cur = 0;
          while (cur < imgprotocount)
          {
              if (prev[cur] == toremove) break;
-             instances[cur] = prev[cur];
+             imgprotos[cur] = prev[cur];
              cur++;
          }
          for (; cur < imgprotocount; cur++) imgprotos[cur] = prev[cur + 1];
+         imgprotocount--;
   };
 
 
@@ -173,8 +174,9 @@ public class draw_manager {
              if (prev[cur] == toremove) break;
              instances[cur] = prev[cur];
              cur++;
-         }
+         };
          for (; cur < instancecount; cur++) instances[cur] = prev[cur + 1];
+         instancecount--;
      }
      public void CollectGarbage ()
      {
