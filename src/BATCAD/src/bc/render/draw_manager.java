@@ -9,25 +9,25 @@ import javax.media.opengl.*;
 import javax.media.opengl.awt.*;
 import org.w3c.dom.Document;
 
+/**
+ * An explanation on the rendering process.
+ *
+ * 1. A circuit is created.
+ * 2. The application requests create_instance("imagefile.svg") from the
+ * rendering subsystem.
+ * 3. The renderer checks to see if that image is already in memory.
+ * 4. If it isn't, the renderer loads the image from its source file and breaks
+ * it into components.
+ * 5. The draw_instance is made to link back to the image.
+ *
+ * Whenever the renderer cycles, it looks through the instances and draws each
+ * one's linked image prototype to a buffer, stepping through each component
+ * primitive in the prototype, and offsetting the primitive by (1) its place in
+ * the image, (2) the instance's position in the environment, and (3) the
+ * environment perspective.
+ */
 public class draw_manager {
-  /**
-   * An explanation on the rendering process.
-   *
-   * 1. A circuit is created.
-   * 2. The application requests create_instace("imagefile.svg") from the
-   * rendering subsystem.
-   * 3. The renderer checks to see if that image is already in memory.
-   * 4. If it isn't, the renderer loads the image from its source file and
-   * breaks it into components.
-   * 5. The draw_instance is made to link back to the image.
 
-   * Whenever the renderer cycles, it looks through the instances and draws each
-   * one's linked image prototype to a buffer, stepping through each component
-   * primitive in the prototype, and offsetting the primitive by (1) its place
-   * in the image, (2) the instance's position in the environment, and (3) the
-   * environment perspective.
-  */
-  
   boolean updated;
 
   enum imgcomponent_t {
@@ -42,11 +42,10 @@ public class draw_manager {
   // RENAMED imgcomponent and RESTORED OLD imgproto
   // imgproto is a composite class describing a complete image,
   // and is composed of imgcomponent objects describing individual pieces
-
   public class imgcomponent {
 	// MOVED from its own space into this class, since buffers and such will be context-specific
 
-    // This will be a prototype for an SVG so it can be drawn onto an image.
+	// This will be a prototype for an SVG so it can be drawn onto an image.
 	// will hold geometry & color data, probably in the form of GL buffers
 	// imgproto objects should *NOT* be alloc'ed and then destroyed every frame!
 	/* NOTE:
@@ -90,7 +89,7 @@ public class draw_manager {
   public class imgproto {
         // MOVED from its own space into this class, since buffers and such will be context-specific
 
-        // This will be a prototype for an SVG so it can be drawn onto an image.
+	// This will be a prototype for an SVG so it can be drawn onto an image.
 	// will hold geometry & color data, probably in the form of GL buffers
 	// imgproto objects should *NOT* be alloc'ed and then destroyed every frame!
 	imgcomponent[] components;
@@ -98,13 +97,13 @@ public class draw_manager {
 	public String loadedfrom; // avoid having duplicates of the same prototype
 
 	public imgproto(String filepath) {
-            // Load & parse the SVG
+	  // Load & parse the SVG
 	  // alloc some buffers 'n stuff
 	}
 
 	public void free() {
 
-            // Free resources like GL buffers
+	  // Free resources like GL buffers
 	  // This MUST be called to avoid memory leaks!
 	  // Only call it once, and after that the object is useless
 	}
@@ -152,12 +151,11 @@ public class draw_manager {
   public class draw_instance {
 
 	// should be created and tracked by the Circuit Component class.
-
 	public float posx, posy;
 	imgproto proto;
 
 	public draw_instance(String imgpath) {
-            // Checks imgprotos to see if the SVG is already loaded
+	  // Checks imgprotos to see if the SVG is already loaded
 	  // otherwise loads it anew 
 	  boolean already = false;
 	  for (int cur = 0; cur < imgprotocount; cur++) {
@@ -177,7 +175,7 @@ public class draw_manager {
   public draw_instance[] instances;
   public int instancecount = 0;
 
-  public draw_instance create_instance(String imgpath) {
+  public draw_instance create_instance (String imgpath) {
 	draw_instance[] prev = instances;
 	instances = new draw_instance[instancecount + 1];
 	for (int cur = 0; cur < instancecount; cur++) {
@@ -225,20 +223,20 @@ public class draw_manager {
   public float p_x, p_y, p_w, p_h;//perspective
 
   public void Zoom(float ratio) {
-        // bigger ratio: zoom out
+	// bigger ratio: zoom out
 	// smaller ratio: zoom in
 	p_w *= ratio;
 	p_h *= ratio;
   }
 
-    public void Pan(float x, float y) {
-        // positive: up | right
+  public void Pan(float x, float y) {
+	// positive: up | right
 	// negative: down | left
 	p_x += x;
 	p_y += y;
   }
-    
-    public void DisplayToPanel(JPanel put_in) {
+
+  public void DisplayToPanel(JPanel put_in) {
 	draw_cw renderer = new draw_cw(this);
 	GLPbuffer pbuf = renderer.WaitForImage(); // optimally this will be done as late as possible before the next frame,
 	//in order to give it time to process in the background without blocking.
@@ -256,6 +254,3 @@ public class draw_manager {
    *
    }*/
 }
-
-
-

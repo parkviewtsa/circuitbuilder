@@ -5,6 +5,7 @@
  */
 package bc.desc;
 
+import bc.App;
 import bc.render.*;
 import org.w3c.dom.*;
 
@@ -33,13 +34,13 @@ public class Wire {
 	Element g = svg.createElement("g");
 	g.setAttribute("style",
 			"transform:translate(" + pos_x + "," + pos_y + ");" );
+	Element e = svg.createElement("polyline");
 
 	if (width == 0.0 || height == 0.0) {
 	  /* If the two components we are trying to connect line up either
 	   * horizontally or vertically, it's easy. We simply draw a line from
 	   * one terminal to the other. */
-	  
-	  Element e = svg.createElement("polyline");
+	 
 	  e.setAttribute("points", "0,0 " + width + "," + height);
 	  g.appendChild(e);
 	} else {
@@ -56,13 +57,18 @@ public class Wire {
 		q_y = height;
 	  }
 
-	  Element e = svg.createElement("polyline");
 	  e.setAttribute("points", "0,0 " +
 			  p_x + "," + p_y + " " +
 			  q_x + "," + q_y
 	  );
-	  g.appendChild(e);
 	}
+	g.appendChild(e);
+	svg.appendChild(g);
+	
+	/* TODO:
+	 * Overload draw_manager::create_instance with a form that accepts a
+	 * Document. */
+	draw = App.renderer.mgr.create_instance(svg);
   }
 
 }

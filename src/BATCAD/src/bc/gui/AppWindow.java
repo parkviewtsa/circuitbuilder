@@ -10,10 +10,9 @@ import javax.media.opengl.awt.GLJPanel;
 import bc.desc.*;
 import bc.layout.*;
 import bc.render.*;
-import bc.Application;
+import bc.App;
 //import bc.report.*;
 //import bc.simulation.*;
-
 public class AppWindow extends JFrame {
   GLJPanel canvas;
   
@@ -22,7 +21,7 @@ public class AppWindow extends JFrame {
     setSize(800, 500);
 
     Container contentPane = getContentPane();
-    canvas = Application.renderer.getSVGCanvas();
+    canvas = App.renderer.getSVGCanvas();
     contentPane.add(canvas);
 
     setVisible(true);

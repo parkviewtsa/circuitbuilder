@@ -1,6 +1,6 @@
 package bc.layout;
 
-import bc.Application;
+import bc.App;
 import org.w3c.dom.*;
 import java.io.*;
 import javax.xml.transform.*;
