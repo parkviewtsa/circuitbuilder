@@ -16,7 +16,7 @@ import org.w3c.dom.*;
 public class Wire {
 
   public Document svg;
-  public draw_manager.draw_instance draw;
+  public draw_manager.draw_instance painter;
 
   public Terminal from;
   public Terminal to;
@@ -94,7 +94,7 @@ public class Wire {
 	/* TODO:
 	 * Overload draw_manager::create_instance with a form that accepts a
 	 * Document. */
-	draw = App.renderer.mgr.create_instance(svg);
+	painter = App.renderer.mgr.create_instance(svg);
   }
 
 }
