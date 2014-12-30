@@ -5,10 +5,11 @@
         <group>
             <file>file:/F:/TSA/circuitbuilder/src/BATCAD/src/bc/render/draw_manager.java</file>
             <file>file:/F:/TSA/circuitbuilder/src/BATCAD/src/bc/render/SVGRenderer.java</file>
-            <file>file:/F:/TSA/circuitbuilder/src/BATCAD/src/bc/layout/Diagram.java</file>
-            <file>file:/F:/TSA/circuitbuilder/src/BATCAD/src/bc/Application.java</file>
+            <file>file:/F:/TSA/circuitbuilder/src/BATCAD/src/bc/desc/Wire.java</file>
+            <file>file:/F:/TSA/circuitbuilder/src/BATCAD/src/bc/UserSettings.java</file>
+            <file>file:/F:/TSA/circuitbuilder/src/BATCAD/src/bc/desc/Component.java</file>
             <file>file:/F:/TSA/circuitbuilder/src/BATCAD/src/bc/render/draw_cw.java</file>
-            <file>file:/F:/TSA/circuitbuilder/src/BATCAD/src/bc/desc/Circuit.java</file>
+            <file>file:/F:/TSA/circuitbuilder/src/BATCAD/src/bc/App.java</file>
         </group>
     </open-files>
 </project-private>
