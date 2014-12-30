@@ -17,7 +17,7 @@
  */
 package bc.desc;
 
-import bc.layout.SVGExporter;
+import bc.export.SVGExporter;
 
 /**
  *

@@ -1,7 +1,7 @@
 package bc.render;
 // not quite sure if all these imports are necessary, but they can't hurt so just clean them up later
 
-import bc.layout.SVGExporter;
+import bc.export.SVGExporter;
 import java.awt.*;
 import java.util.Map;
 import javax.swing.*;
