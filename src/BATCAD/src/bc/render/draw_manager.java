@@ -169,23 +169,41 @@ public class draw_manager {
 		add_imgproto(proto); // keep track of it
 	  }
 	}
+	
+	public draw_instance(Document svgDom) {
+	  
+	}
   }
   public draw_instance[] instances;
   public int instancecount = 0;
 
-  public draw_instance create_instance(String imgpath) {
-	/* TODO:
-	 * Create a version of this method that accepts an org.w3c.dom.Document. The
-	 * SVGs for components are loaded from files, but the wires are created
-	 * dynamically as Document objects. */
+  public draw_instance create_instance(String path, float posx, float posy) {
 	draw_instance[] prev = instances;
 	instances = new draw_instance[instancecount + 1];
 	for (int cur = 0; cur < instancecount; cur++) {
 	  instances[cur] = prev[cur];
 	}
-	draw_instance out = new draw_instance(imgpath);
+	draw_instance out = new draw_instance(path);
 	instances[instancecount] = out;
 	instancecount++;
+	
+	out.posx = posx;
+	out.posy = posy;
+	return out;
+  }
+  
+  public draw_instance create_instance(Document svg, float posx, float posy) {
+	draw_instance[] prev = instances;
+	instances = new draw_instance[instancecount + 1];
+	for (int cur = 0; cur < instancecount; cur++) {
+	  instances[cur] = prev[cur];
+	}
+	draw_instance out = new draw_instance(svg);
+	instances[instancecount] = out;
+	instancecount++;
+	
+	out.posx = posx;
+	out.posy = posy;
 	return out;
   }
 
@@ -246,14 +264,4 @@ public class draw_manager {
 
 	// Now take the renderer's output and stick it in `put_in`
   }
-  /* public void set_diagram (Diagram diagram) {
-   * TODO:
-   * Here is where you'll process the SVG (which will be passed to this method
-   * as a DOM, located in the argument's doc field) into imgprotos and add
-   * them to the draw_manager.
-   *
-   * A NOTE ON CSS: We have no need to do external CSS, but each SVG element
-   * may have a style attribute with CSS in it.
-   *
-   }*/
 }

@@ -94,7 +94,7 @@ public class Wire {
 	/* TODO:
 	 * Overload draw_manager::create_instance with a form that accepts a
 	 * Document. */
-	painter = App.renderer.mgr.create_instance(svg);
+	painter = App.renderer.mgr.create_instance(svg, pos_x, pos_y);
   }
 
 }

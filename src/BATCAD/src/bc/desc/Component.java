@@ -23,10 +23,10 @@ public class Component {
   
   public String name;
   public String abbr;
-  public int globalID;
-  public int perTypeID;
+  public int globalId;
+  public int perTypeId;
 
-  public Document symbol;
+  public String symbolUri;
   public float width;
   public float height;
   public float xPos; // centre of component
