@@ -21,11 +21,11 @@ public class draw_cw {
 
 	GL2 gl = buf.getGL().getGL2();
 	// start rendering here
-	for (int cur = 0; cur < what.instancecount; cur++) {
-	  draw_manager.draw_instance instance = what.instances[cur];
-	  for (int subcur = 0; subcur < instance.proto.componentcount; subcur++) {
-		draw_manager.imgcomponent component = instance.proto.components[subcur];
-                // Calculate relative position and size.
+	for (int i = 0; i < what.instancecount; i++) {
+	  draw_manager.draw_instance instance = what.instances[i];
+	  for (int j = 0; j < instance.proto.componentcount; j++) {
+		draw_manager.imgcomponent component = instance.proto.components[j];
+		// Calculate relative position and size.
 		// Issue draw commands.
 	  }
 	}

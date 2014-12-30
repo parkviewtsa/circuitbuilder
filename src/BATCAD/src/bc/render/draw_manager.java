@@ -240,7 +240,8 @@ public class draw_manager {
 
   public void DisplayToPanel(JPanel put_in) {
 	draw_cw renderer = new draw_cw(this);
-	GLPbuffer pbuf = renderer.WaitForImage(); // optimally this will be done as late as possible before the next frame,
+	GLPbuffer pbuf = renderer.WaitForImage();
+	// optimally this will be done as late as possible before the next frame,
 	//in order to give it time to process in the background without blocking.
 
 	// Now take the renderer's output and stick it in `put_in`
