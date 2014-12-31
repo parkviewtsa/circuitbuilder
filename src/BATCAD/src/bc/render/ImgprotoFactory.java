@@ -42,7 +42,7 @@ public class ImgprotoFactory extends DefaultHandler {
 	
 	/* Each of these methods represents one or more of the commands in the
 	 * <path> element's "d" (data) attribute. The command(s) that each
-	 * represent(s) is listed next to the method declaration. */
+	 * represents is listed next to the method declaration. */
 	
 	public void absMoveTo (float x, float y) { // M
 	  curX = x;
