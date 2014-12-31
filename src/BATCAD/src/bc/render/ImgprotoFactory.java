@@ -16,6 +16,8 @@ import org.xml.sax.helpers.DefaultHandler;
 public class ImgprotoFactory extends DefaultHandler {
   private draw_manager.imgproto current;
   private ArrayList<draw_manager.imgcomponent> components;
+  private String groupStyle;
+  private String pGroupStyle; // parent group style
   
   public boolean working;
   
@@ -35,7 +37,54 @@ public class ImgprotoFactory extends DefaultHandler {
   }
   
   private class Path {
+	private float curX;
+	private float curY;
 	
+	/* Each of these methods represents one or more of the commands in the
+	 * <path> element's "d" (data) attribute. The command(s) that each
+	 * represent(s) is listed next to the method declaration. */
+	
+	public void absMoveTo (float x, float y) { // M
+	  curX = x;
+	  curY = y;
+	}
+	
+	public void relMoveTo (float dx, float dy) { // m
+	  curX += dx;
+	  curY += dy;
+	}
+	
+	public void absLineTo (float x, float y) { // l, h, v
+	  
+	}
+	
+	public void relLineTo (float dx, float dy) { // L, H, V
+	  
+	}
+	
+	public void absCubicBezierTo (float c1_x, float c1_y, float c2_x,
+	  float c2_y, float f_x, float f_y) // C, S
+	{
+	  
+	}
+	
+	public void relCubicBezierTo (float c1_x, float c1_y, float c2_x,
+	  float c2_y, float f_x, float f_y) // c, s
+	{
+	  
+	}
+	
+	public void absQuadBezierTo (float c_x, float c_y, float f_x, float f_y) {
+	  // Q, T
+	}
+	
+	public void relQuadBezierTo (float c_x, float c_y, float f_x, float f_y) {
+	  // q, t
+	}
+	
+	public void done () { // Z, z
+	  
+	}
   }
   
   //*** EVENT HANDLERS ***//
@@ -51,9 +100,15 @@ public class ImgprotoFactory extends DefaultHandler {
   {
 	float x, y, cx, cy, r, rx, ry, w, h;
 	Point[] points;
+	Path path;
 	String style;
 	if (uri.equals("")) {
 	  switch (qName) {
+		case "g":
+		  // TODO: not sure about this
+		  pGroupStyle = pGroupStyle + groupStyle;
+		  groupStyle = attr.getValue("style");
+		  break;
 		case "circle":
 		  cx = Float.parseFloat(attr.getValue("cx"));
 		  cy = Float.parseFloat(attr.getValue("cy"));
@@ -88,6 +143,7 @@ public class ImgprotoFactory extends DefaultHandler {
 		  polyline(points);
 		  break;
 		case "path":
+		  path = parsePathString(attr.getValue("d"));
 		  break;
 		case "text":
 		  break;
@@ -102,7 +158,7 @@ public class ImgprotoFactory extends DefaultHandler {
   
   @Override
   public void endElement(String uri, String localName, String qName) {
-	
+	groupStyle = pGroupStyle;
   }
   
   @Override
@@ -113,7 +169,14 @@ public class ImgprotoFactory extends DefaultHandler {
   //*** END EVENT HANDLERS ***//
   
   //*** PER-ELEMENT METHODS ***//
-
+  
+  /* TODO:
+   * Each of these methods needs to create the necessary imgcomponents for the
+   * specified graphical primitive, and add them to the components ArrayList.
+   * CSS processing also needs to take place here, both with the style parameter
+   * to each method, and with the groupStyle class field (which comes from <g>
+   * elements).
+   */
   
   private void circle (float cx, float cy, float r, String style) {
 	
