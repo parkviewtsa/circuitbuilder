@@ -9,9 +9,11 @@
 
 uniform vec4 stroke_color;
 uniform vec4 fill_color;
-uniform vec2 f_1;
-uniform vec2 f_2;
+uniform vec2 f_1; // first focus
+uniform vec2 f_2; // second focus
 uniform float maj_axis;
+/* major axis, or, the critical value of the sum of the
+ * distance to the two foci */
 
 varying vec2 pos;
 
