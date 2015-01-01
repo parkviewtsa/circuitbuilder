@@ -11,8 +11,8 @@
  * coordinates into viewport coordinates. */
 
 uniform mat4 scvp; // transforms screen to viewport coords
-attribute vec2 v_pos;
-varying vec2 sc_pos;
+attribute vec2 in_pos; // uploaded from the CPU
+varying vec2 sc_pos; // sent to the fragment shader
 
 void main (void)
 {
