@@ -29,9 +29,9 @@ void main (void)
   // A trailing underscore is my equivalent of a prime symbol.
   vec2 pos_ = (inverse(rotation)*sc_pos).xy;
   float res = length(f_1-pos_) + length(f_2-pos_);
-  if (abs(res-maj_axis) < stroke_width) {
+  if (abs(res-maj_axis) < stroke_width/2) {
     gl_FragColor = stroke_color;
-  } else if (res-maj_axis < -stroke_color) {
+  } else if (res-maj_axis < -stroke_width/2) {
     gl_FragColor = fill_color;
   } else {
     gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0);
