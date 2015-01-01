@@ -14,12 +14,21 @@ uniform vec2 f_2; // second focus
 uniform float maj_axis;
 /* major axis, or, the critical value of the sum of the
  * distance to the two foci */
+//uniform mat4 rotation;
 
-varying vec2 pos;
+varying vec4 sc_pos;
 
 void main (void)
 {
-  float res = length(f_1-pos) + length(f_2-pos);
+  mat4 rotation = mat4(
+    1.0, 0.0, 0.0, 0.0,
+    0.0, 1.0, 0.0, 0.0,
+    0.0, 0.0, 1.0, 0.0,
+    0.0, 0.0, 0.0, 1.0
+  )
+  // A trailing underscore is my equivalent of a prime symbol.
+  vec2 pos_ = (inverse(rotation)*sc_pos).xy;
+  float res = length(f_1-sc_pos.xy) + length(f_2-sc_pos.xy);
   if (abs(res-maj_axis) < stroke_width) {
     gl_FragColor = stroke_color;
   } else if (res-maj_axis < -stroke_color) {

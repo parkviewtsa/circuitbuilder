@@ -10,11 +10,12 @@
 /* We only need one vertex shader. All it has to do is transform the screen
  * coordinates into viewport coordinates. */
 
+uniform mat4 scvp; // transforms screen to viewport coords
 attribute vec2 v_pos;
-varying vec2 pos;
+varying vec2 sc_pos;
 
 void main (void)
 {
-  pos = v_pos;
-  gl_Position = v_pos;
+  sc_pos = vec4(v_pos, 0.0, 1.0);
+  gl_Position = scvp*sc_pos;
 }
