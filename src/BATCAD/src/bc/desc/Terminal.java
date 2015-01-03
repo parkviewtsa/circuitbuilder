@@ -9,24 +9,26 @@ public class Terminal {
   public TerminalType type;
   public float xPos; // relative to centre of component
   public float yPos;
-  public Terminal dest;
+  private Wire in;
+  private Wire out;
 
   public Terminal(Component comp, Circuit c) {
 	component = comp;
 	circ = c;
   }
+  
+  public Terminal getPrev() {
+	return in.from;
+  }
+  
+  public Terminal getNext() {
+	return out.to;
+  }
 
   public void connect(Terminal to, boolean allowOverride)
 	throws InvalidPolarityError, ConnectionOverrideError
   {
-	if (type == to.type) {
-	  throw new InvalidPolarityError(component.abbr);
-	} else if (dest != null || to.dest != null && !allowOverride) {
-	  throw new ConnectionOverrideError("_temp_");
-	} else {
-	  dest = to;
-	  to.dest = this;
-	}
+	// TODO: implement new connect() to match new architecture
   }
 
   public float getGlobalXPos() {
