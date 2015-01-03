@@ -17,17 +17,21 @@
  */
 package bc.desc;
 
-import bc.export.SVGExporter;
 
 /**
  *
  * @author Brent
  */
+
+/*
+ * This class isn't totally done yet, but nothing that's going to go in here
+ * will affect the API. 99% of the API is in the Component, Terminal and Wire
+ * classes.
+*/
 public class Circuit {
-  public Component[] components; 
-  public SVGExporter diagram;
+  public Component[] components;
   
   public Circuit () {
-	diagram = new SVGExporter(this);
+	//
   }
 }
