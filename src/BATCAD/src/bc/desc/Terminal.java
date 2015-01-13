@@ -4,38 +4,36 @@ import bc.error.*;
 
 public class Terminal {
 
-  Circuit circ;
-  Component component;
-  public TerminalType type;
-  public float xPos; // relative to centre of component
-  public float yPos;
-  private Wire in;
-  private Wire out;
+	Circuit circ;
+	Component component;
+	public float xPos; // relative to centre of component
+	public float yPos;
+	private Wire in;
+	private Wire out;
 
-  public Terminal(Component comp, Circuit c) {
-	component = comp;
-	circ = c;
-  }
-  
-  public Terminal getPrev() {
-	return in.from;
-  }
-  
-  public Terminal getNext() {
-	return out.to;
-  }
+	public Terminal(Component comp, Circuit c) {
+		component = comp;
+		circ = c;
+	}
 
-  public void connect(Terminal to, boolean allowOverride)
-	throws InvalidPolarityError, ConnectionOverrideError
-  {
-	// TODO: implement new connect() to match new architecture
-  }
+	public Terminal getPrev() {
+		return in.from;
+	}
 
-  public float getGlobalXPos() {
-	return xPos + component.xPos;
-  }
+	public Terminal getNext() {
+		return out.to;
+	}
 
-  public float getGlobalYPos() {
-	return yPos + component.yPos;
-  }
+	public void connect(Terminal to, boolean allowOverride)
+					throws ConnectionOverrideError {
+		// TODO: implement new connect() to match new architecture
+	}
+
+	public float getGlobalXPos() {
+		return xPos + component.xPos;
+	}
+
+	public float getGlobalYPos() {
+		return yPos + component.yPos;
+	}
 }

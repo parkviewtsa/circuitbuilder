@@ -8,7 +8,6 @@ import javax.media.opengl.awt.GLJPanel;
  * bugging me. */
 
 import bc.desc.*;
-import bc.layout.*;
 import bc.render.*;
 import bc.App;
 //import bc.report.*;

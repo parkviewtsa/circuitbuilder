@@ -7,7 +7,6 @@ package bc;
 
 import bc.gui.*;
 import bc.file.*;
-import bc.layout.*;
 import bc.desc.*;
 import bc.render.SVGRenderer;
 

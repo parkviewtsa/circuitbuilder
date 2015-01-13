@@ -17,7 +17,8 @@
 */
 package bc.desc;
 
-import org.w3c.dom.*;
+import bc.App;
+import bc.render.draw_manager;
 
 public class Component {
   
@@ -31,8 +32,12 @@ public class Component {
   public float height;
   public float xPos; // centre of component
   public float yPos;
-  public Orientation orientation;
-
+  public int orientation; // 0 to 3; basically (rotation CCW from standard)/90
+	public draw_manager.draw_instance painter;
   public Terminal[] terminals;
   //LispExpression rulebook;
+	
+	public void draw () {
+		painter = App.renderer.mgr.create_instance(symbolUri, xPos, yPos);
+	}
 }
