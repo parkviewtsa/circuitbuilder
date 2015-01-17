@@ -30,8 +30,13 @@ package bc.desc;
 */
 public class Circuit {
   public Component[] components;
+	public Wire[] wires;
   
   public Circuit () {
 	//
   }
+	
+	public Circuit (String filename) {
+		
+	}
 }

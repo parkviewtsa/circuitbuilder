@@ -51,6 +51,7 @@ public class Wire {
 		}
 
 		Element g = svg.createElement("g");
+		g.setAttribute("class", "bc-wire");
 		g.setAttribute("style",
 						"transform:translate(" + pos_x + "," + pos_y + ");");
 
