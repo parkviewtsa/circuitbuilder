@@ -29,7 +29,7 @@
     g.setAttribute("style",
     "transform:translate(" + pos_x + "," + pos_y + ");");
 
-    Element e = svg.createElement("polyline");
+    var e = svg.createElement("polyline");
     if ((width == 0.0 || height == 0.0) && rotation != 2) {
       /* If the two components we are trying to connect line up either
       * horizontally or vertically and we don't have to do a 180 flip, it's
