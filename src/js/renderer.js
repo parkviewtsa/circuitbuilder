@@ -48,26 +48,26 @@
       if (aRatio < App.userSettings.min90ARatio) {
         // Draw a horizontal line with a 45 in the middle.
         p_x = (width / 2) - (height / 2);
-        p_y = 0.0f;
+        p_y = 0.0;
         q_x = (width / 2) + (height / 2);
         q_y = height;
       } else if (aRatio > App.userSettings.max90ARatio
         || App.userSettings.max90ARatio == -1.0f) // Stand-in for undefined
       {
         // Draw a vertical line with a 45 in the middle.
-        p_x = 0.0f;
+        p_x = 0.0;
         p_y = (height / 2) - (width / 2);
         q_x = width;
         q_y = (height / 2) + (width / 2);
       } else if (aRatio > 1) {
         // Draw a horizontal line with a perpendicular segment in the middle.
         p_x = width / 2;
-        p_y = 0.0f;
+        p_y = 0.0;
         q_x = width / 2;
         q_y = height;
       } else { // aRatio < 1
         // Draw a vertical line with a perpendicular segment in the middle.
-        p_x = 0.0f;
+        p_x = 0.0;
         p_y = height / 2;
         q_x = width;
         q_y = height / 2;
