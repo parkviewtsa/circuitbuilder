@@ -4,9 +4,9 @@
 
   var drawComponent = function (symbol, x, y, orientation) {
     if (symbol != null) {
-      Element g = symbol.getElementById("main");
-      g.setAttribute("style",
-      "transform:rotate(" + orientation * 90 + "deg);");
+      Element g = symbol.getElementById('main');
+      g.setAttribute('style',
+      'transform:rotate(' + orientation * 90 + 'deg);');
     }
   }
 
@@ -24,17 +24,17 @@
       rotation += 4;
     }
 
-    var g = svg.createElement("g");
-    g.setAttribute("class", "bc-wire");
-    g.setAttribute("style",
-    "transform:translate(" + pos_x + "," + pos_y + ");");
+    var g = svg.createElement('g');
+    g.setAttribute('class', 'bc-wire');
+    g.setAttribute('style',
+    'transform:translate(' + pos_x + ',' + pos_y + ');');
 
-    var e = svg.createElement("polyline");
+    var e = svg.createElement('polyline');
     if ((width == 0.0 || height == 0.0) && rotation != 2) {
       /* If the two components we are trying to connect line up either
       * horizontally or vertically and we don't have to do a 180 flip, it's
       * easy. We simply draw a line from one terminal to the other. */
-      e.setAttribute("points", "0,0 " + width + "," + height);
+      e.setAttribute('points', '0,0 ' + width + ',' + height);
     } else if (rotation == 0) {
       /* Otherwise, we have to do a little more work. Typically in circuit
       * diagrams, lines can only be horizontal, vertical, or at a 45 degree
@@ -52,7 +52,7 @@
         q_x = (width / 2) + (height / 2);
         q_y = height;
       } else if (aRatio > App.userSettings.max90ARatio
-        || App.userSettings.max90ARatio == -1.0f) // Stand-in for undefined
+        || App.userSettings.max90ARatio == -1.0) // Stand-in for undefined
       {
         // Draw a vertical line with a 45 in the middle.
         p_x = 0.0;
@@ -73,9 +73,9 @@
         q_y = height / 2;
       }
 
-      e.setAttribute("points", "0,0 "
-        + p_x + "," + p_y + " "
-        + q_x + "," + q_y
+      e.setAttribute('points', '0,0 '
+        + p_x + ',' + p_y + ' '
+        + q_x + ',' + q_y
       );
     }
     else if (rotation == 1) {
