@@ -17,24 +17,48 @@
 -->
 
 <html>
-
 <head>
-  <link rel="stylesheet" type="text/css" href="main-window.css" />
-  <link rel="stylesheet" type="text/css" href="diagram.css" />
-</head>
-
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" type="text/css" href="main-window.css" />
+	<link rel="stylesheet" type="text/css" href="diagram.css" />
+	
+	<script src="main.js"></script>
+  </head>
 <body>
+	<div class= "header" />
+		<h1> Circuit Builder <h1/>
   <div id="menu-bar">
     <!--
      - This is the main menu bar (immediately below the File/Edit/etc menus),
      - where all of the various 'tools' are located.
     -->
-  <div id="left-panel">
+	<input type= "button" value= "Resistor" onclick="google.script.host.close()" />
+	<input type= "button" value= "Conducting Path" onclick="google.script.host.close()" />
+	<input type= "button" value= "Power Source" onclick="google.script.host.close()" />
+	<input type= "button" value= "Load" onclick="google.script.host.close()" />
+	
+  <div class="container">
     <!--
      - This is the left panel, where we will have a list of components that can
      - be dragged and dropped onto the diagram canvas.
     -->
-  </div>
+	
+		<div id="dd-elements" class="clearfix">
+			<ul id="drag-elements">
+				<li draggable="true">Resistor</li>
+				<li draggable="true">Conducting Path</li>
+				<li draggable="true">Power Source</li>
+				<li draggable="true">Load</li>				
+			</ul>
+
+			<div id="drop-target-one">
+				Drop Here!
+			</div>
+		<div/>
+		
+	<div/>
+	
   <div id="main-panel">
     <div id="tabs"></div>
     <div id="canvas-container">
