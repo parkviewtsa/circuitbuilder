@@ -48,8 +48,6 @@ window.onload = function() {
     this.className = "";
     this.innerHTML = "Dropped " + e.dataTransfer.getData('text');
 
-    // Remove the element from the list.
-    document.querySelector('#drag-elements').removeChild(elementDragged);
     elementDragged = null;
 
     return false;

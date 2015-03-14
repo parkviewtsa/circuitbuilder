@@ -26,19 +26,18 @@
 	<script src="drag-drop.js"></script>
 </head>
 <body>
-	<div class= "header" />
-		<h1> Circuit Builder <h1/>
   <div id="menu-bar">
     <!--
      - This is the main menu bar (immediately below the File/Edit/etc menus),
      - where all of the various 'tools' are located.
     -->
-	<input type= "button" value= "Resistor" onclick="google.script.host.close()" />
-	<input type= "button" value= "Conducting Path" onclick="google.script.host.close()" />
-	<input type= "button" value= "Power Source" onclick="google.script.host.close()" />
-	<input type= "button" value= "Load" onclick="google.script.host.close()" />
+		<input type= "button" value= "Resistor" onclick="google.script.host.close()" />
+		<input type= "button" value= "Conducting Path" onclick="google.script.host.close()" />
+		<input type= "button" value= "Power Source" onclick="google.script.host.close()" />
+		<input type= "button" value= "Load" onclick="google.script.host.close()" />
+	</div>
 
-  <div class="container">
+  <div id="left-panel">
     <!--
      - This is the left panel, where we will have a list of components that can
      - be dragged and dropped onto the diagram canvas.
@@ -51,17 +50,15 @@
 				<li draggable="true">Power Source</li>
 				<li draggable="true">Load</li>
 			</ul>
-
-			<div id="drop-target-one">
-				Drop Here!
-			</div>
-		<div/>
-
-	<div/>
+		</div>
+	</div>
 
   <div id="main-panel">
     <div id="tabs"></div>
     <div id="canvas-container">
+			<div id="drop-target-one">
+				Drop Here!
+			</div>
       <svg id="canvas"></svg>
     </div>
   </div>
