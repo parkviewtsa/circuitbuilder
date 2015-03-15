@@ -23,15 +23,17 @@ const HEIGHT = 600
 // Load some important modules.
 var app = require('app');
 var BrowserWindow = require('browser-window');
+var IPC = require('ipc');
 
 // Load application 'classes'
+var Circuit = require('./circuit.js');
 // TODO load other files
 
 // Keep global references of some important things
 var fc = null;
 var mainWindow = null;
 var renderer = null;
-var openCircuits = [];
+var circuit = null;
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
@@ -43,14 +45,7 @@ app.on('window-all-closed', function () {
 app.on('ready', function main () {
   fc = new FileController();
   renderer = (new SVGRenderer()).setup();
-  var filenames = processArgs(args).filenames;
-  if (filenames.length > 0) {
-    for (int i=0; i<filenames.length; i++) {
-      openCircuits.add(new Circuit(filenames.[i]));
-    }
-  } else {
-    openCircuits.add(new Circuit());
-  }
+  circuit = new Circuit();
 
   // Create the main window and load the UI.
   mainWindow = new BrowserWindow({width: WIDTH, height: HEIGHT});
@@ -59,9 +54,7 @@ app.on('ready', function main () {
 });
 
 
-  // Set the main window to be dereferenced when closed.
-  mainWindow.on('closed', function () {
-    mainWindow = null;
-  });
-});
+// Set the main window to be dereferenced when closed.
+mainWindow.on('closed', function () {
+  mainWindow = null;
 });
