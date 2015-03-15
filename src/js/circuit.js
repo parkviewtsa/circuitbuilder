@@ -25,6 +25,7 @@ IPC.on('asynchronous-message', function (e, arg) {
   }
 });
 
+// Definition and constructor for the Circuit class
 module.exports = function Circuit () {
 
 }
