@@ -31,8 +31,8 @@ function Wire (x1, y1, x2, y2, rot1, rot2) {
       * angle to the horizontal. This algorithm attempts to break up the wire
       * into three line segments, each of these in a permitted orientation.
       * P and Q represent the junction points between the segments. */
-      float p_x, p_y, q_x, q_y;
-      float aRatio = width / height;
+      var p_x, p_y, q_x, q_y;
+      var aRatio = width / height;
       /* TODO:
       * Eventually this will be a conditional based on user settings. */
       if (aRatio < App.userSettings.min90ARatio) {

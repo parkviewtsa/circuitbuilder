@@ -25,10 +25,10 @@ function Circuit () {
   this.maxId = -1;
 
   this.addNew = function (type) {
-    id = maxId+1;
+    id = this.maxId+1;
     component = new Component(type, id);
-    components.add(component);
-    maxId = id;
+    this.components.push(component);
+    this.maxId = id;
   }
 
 }

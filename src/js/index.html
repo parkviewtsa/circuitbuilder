@@ -23,26 +23,27 @@
 	<link rel="stylesheet" type="text/css" href="main-window.css" />
 	<link rel="stylesheet" type="text/css" href="diagram.css" />
 
-	<script>
-		// Keep global references of some important things
-		var fc = null;
-		var mainWindow = null;
-		var renderer = null;
-		var circuit = null;
-
-		window.onload = function main () {
-			//fc = new FileController();
-			renderer = (new SVGRenderer()).setup();
-			circuit = new Circuit();
-
-			dragDropSetup();
-		};
-	</script>
-	<script src="circuit.js"></script>
 	<script src="component.js"></script>
-	<script src="renderer.js"></script>
 	<script src="wire.js"></script>
+	<script src="circuit.js"></script>
+	<script src="renderer.js"></script>
 	<script src="drag-drop.js"></script>
+	<script>
+	// Keep global references of some important things
+	var fc = null;
+	var mainWindow = null;
+	var renderer = null;
+	var circuit = null;
+	var svgNS = 'http://www.w3.org/2000/svg'
+
+	window.onload = function main () {
+		//fc = new FileController();
+		renderer = (new SVGRenderer()).setup();
+		circuit = new Circuit();
+
+		dragDropSetup();
+	};
+	</script>
 </head>
 <body>
   <div id="menu-bar">
@@ -64,10 +65,8 @@
 
 		<div id="dd-elements" class="clearfix">
 			<ul id="drag-elements">
-				<li draggable="true">Resistor</li>
-				<li draggable="true">Conducting Path</li>
-				<li draggable="true">Power Source</li>
-				<li draggable="true">Load</li>
+				<li draggable="true" id="resistor">Resistor</li>
+				<li draggable="true" id="battery">Power Source</li>
 			</ul>
 		</div>
 	</div>

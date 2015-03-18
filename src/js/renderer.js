@@ -1,13 +1,13 @@
 function SVGRenderer () {
-  this.svgNS = 'http://www.w3.org/2000/svg'
 
   this.setup = function () {
     this.svg = document.getElementById('canvas');
+    return this;
   }
 
   this.getBlankGroup = function () {
     var g = document.createElementNS(svgNS, 'g');
-    svg.appendChild(g);
+    this.svg.appendChild(g);
     return g;
   }
 
@@ -15,6 +15,14 @@ function SVGRenderer () {
     var e = document.createElementNS(svgNS, name);
     appendTo.appendChild(e);
     return e;
+  }
+
+  this.getRealCoords = function (coords) {
+    vpoffset = this.svg.getBoundingClientRect();
+    return {
+      x: coords.x - vpoffset.left,
+      y: coords.y - vpoffset.top
+    };
   }
 
 }

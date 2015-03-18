@@ -17,6 +17,7 @@
  */
 
 // Definition for the Component class.
+console.log("hi");
 function Component (name, id) {
   this.id = id;
   this.name = name;
@@ -25,7 +26,7 @@ function Component (name, id) {
 
   this.draw = function (symbol, x, y, orientation) {
     if (symbol != null) {
-      Element g = symbol.getElementById('main');
+      var g = symbol.getElementById('main');
       g.setAttribute('style',
       'transform:rotate(' + orientation * 90 + 'deg);');
     }
