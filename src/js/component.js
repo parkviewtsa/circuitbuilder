@@ -15,8 +15,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- 
+
 // Definition for the Component class.
-module.exports = function Component () {
+module.exports = function Component (name, id) {
+  this.id = id;
+  this.name = name;
+  this.g = renderer.getBlankGroup();
+  this.orientation = 0;
+
+  this.draw = function (symbol, x, y, orientation) {
+    if (symbol != null) {
+      Element g = symbol.getElementById('main');
+      g.setAttribute('style',
+      'transform:rotate(' + orientation * 90 + 'deg);');
+    }
+  }
 
 }
