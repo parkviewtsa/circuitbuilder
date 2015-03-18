@@ -23,6 +23,25 @@
 	<link rel="stylesheet" type="text/css" href="main-window.css" />
 	<link rel="stylesheet" type="text/css" href="diagram.css" />
 
+	<script>
+		// Keep global references of some important things
+		var fc = null;
+		var mainWindow = null;
+		var renderer = null;
+		var circuit = null;
+
+		window.onload = function main () {
+			//fc = new FileController();
+			renderer = (new SVGRenderer()).setup();
+			circuit = new Circuit();
+
+			dragDropSetup();
+		};
+	</script>
+	<script src="circuit.js"></script>
+	<script src="component.js"></script>
+	<script src="renderer.js"></script>
+	<script src="wire.js"></script>
 	<script src="drag-drop.js"></script>
 </head>
 <body>

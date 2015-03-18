@@ -22,9 +22,13 @@
 function Circuit () {
 
   this.components = [];
+  this.maxId = -1;
 
-  this.addComponent = function () {
-
+  this.addNew = function (type) {
+    id = maxId+1;
+    component = new Component(type, id);
+    components.add(component);
+    maxId = id;
   }
 
 }

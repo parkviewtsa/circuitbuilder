@@ -23,13 +23,6 @@ const HEIGHT = 600
 // Load some important modules.
 var app = require('app');
 var BrowserWindow = require('browser-window');
-var IPC = require('ipc');
-
-// Keep global references of some important things
-var fc = null;
-var mainWindow = null;
-var renderer = null;
-var circuit = null;
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
@@ -39,14 +32,9 @@ app.on('window-all-closed', function () {
 });
 
 app.on('ready', function main () {
-  fc = new FileController();
-  renderer = (new SVGRenderer()).setup();
-  circuit = new Circuit();
-
   // Create the main window and load the UI.
   mainWindow = new BrowserWindow({width: WIDTH, height: HEIGHT});
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
-
 });
 
 

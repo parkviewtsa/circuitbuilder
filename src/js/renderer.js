@@ -11,4 +11,10 @@ function SVGRenderer () {
     return g;
   }
 
+  this.addElement = function (name, appendTo) {
+    var e = document.createElementNS(svgNS, name);
+    appendTo.appendChild(e);
+    return e;
+  }
+
 }

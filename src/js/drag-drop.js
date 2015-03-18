@@ -1,10 +1,9 @@
-window.onload = function() {
+function dragDropSetup () {
 
   var dropZoneOne = document.querySelector('#drop-target-one');
   var dragElements = document.querySelectorAll('#drag-elements li');
   var dragCoords = {x: 0, y: 0}
   var elementDragged = null;
-  var IPC = require('ipc');
 
   for (var i = 0; i < dragElements.length; i++) {
 
@@ -55,12 +54,9 @@ window.onload = function() {
 
     this.className = "";
     this.innerHTML = "Dropped " + e.dataTransfer.getData('text');
-    IPC.send('asynchronous-message', {
-      eventName: 'add-component';
-      componentType: e.dataTransfer.getData('text'),
-      posX: renderer.getRealCoords(dragCoords.x);
-      posY: renderer.getRealCoords(dragCoords.y);
-    });
+
+    circuit.addNew(e.dataTransfer.getData('text'),
+      renderer.getRealCoords(dragCoords));
 
     elementDragged = null;
 
