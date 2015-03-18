@@ -17,7 +17,7 @@
  */
 
 // Definition for the Component class.
-module.exports = function Component (name, id) {
+function Component (name, id) {
   this.id = id;
   this.name = name;
   this.g = renderer.getBlankGroup();

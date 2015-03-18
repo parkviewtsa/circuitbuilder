@@ -17,15 +17,14 @@
  */
 
 // IPC stuff.
-IPC.on('asynchronous-message', function (e, arg) {
-  if (arg.eventName == 'add-component') {
-
-  } else {
-    console.error("Unrecognized event name '" + arg.eventName + "'")
-  }
-});
 
 // Definition and constructor for the Circuit class
-module.exports = function Circuit () {
+function Circuit () {
+
+  this.components = [];
+
+  this.addComponent = function () {
+
+  }
 
 }

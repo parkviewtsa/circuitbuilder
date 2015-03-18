@@ -25,10 +25,6 @@ var app = require('app');
 var BrowserWindow = require('browser-window');
 var IPC = require('ipc');
 
-// Load application 'classes'
-var Circuit = require('./circuit.js');
-// TODO load other files
-
 // Keep global references of some important things
 var fc = null;
 var mainWindow = null;
