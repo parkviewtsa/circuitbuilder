@@ -1,35 +1,23 @@
-/*
- * Copyright (C) 2014 Brent Bessemer, Gokul Venkatesebaba, Asimm Hirani,
- * Seth Carter, Alexandra Marlette, Linus Fennell.
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 // Definition for the Component class.
-console.log("hi");
-function Component (name, id) {
+function Component (name, id, x, y) {
   this.id = id;
   this.name = name;
   this.g = renderer.getBlankGroup();
   this.orientation = 0;
+  this.symbol = null;
+  this.xPos = x;
+  this.yPos = y;
 
-  this.draw = function (symbol, x, y, orientation) {
-    if (symbol != null) {
-      var g = symbol.getElementById('main');
-      g.setAttribute('style',
-      'transform:rotate(' + orientation * 90 + 'deg);');
+  this.draw = function () {
+    if (this.symbol != null) {
+      this.g.innerHTML = this.symbol.getElementById('main').innerHTML;
     }
+    // TODO buggy
+    this.g.setAttribute('style',
+      'transform:rotate(' + this.orientation * 90 + 'deg) ' +
+      'translate('+ this.xPos + 'px, ' + this.yPos + 'px);'
+    );
+    this.g.classList.add('component');
+    this.g.classList.add(this.name);
   }
-
 }

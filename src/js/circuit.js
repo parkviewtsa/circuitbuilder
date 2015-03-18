@@ -24,11 +24,12 @@ function Circuit () {
   this.components = [];
   this.maxId = -1;
 
-  this.addNew = function (type) {
+  this.addNew = function (type, pos) {
     id = this.maxId+1;
-    component = new Component(type, id);
+    component = new Component(type, id, pos.x, pos.y);
     this.components.push(component);
     this.maxId = id;
+    this.components[this.components.length-1].draw();
   }
 
 }

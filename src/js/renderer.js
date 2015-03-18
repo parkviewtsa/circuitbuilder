@@ -20,8 +20,8 @@ function SVGRenderer () {
   this.getRealCoords = function (coords) {
     vpoffset = this.svg.getBoundingClientRect();
     return {
-      x: coords.x - vpoffset.left,
-      y: coords.y - vpoffset.top
+      x: coords.x,
+      y: coords.y
     };
   }
 
