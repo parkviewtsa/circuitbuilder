@@ -28,6 +28,7 @@
 	<script src="circuit.js"></script>
 	<script src="renderer.js"></script>
 	<script src="drag-drop.js"></script>
+	<script src="tools.js"></script>
 	<script>
 	// Keep global references of some important things
 	var fc = null;
@@ -35,6 +36,8 @@
 	var renderer = null;
 	var circuit = null;
 	var svgNS = 'http://www.w3.org/2000/svg'
+
+	var componentOnclick = function () {};
 
 	window.onload = function main () {
 		//fc = new FileController();
@@ -51,7 +54,7 @@
      - This is the main menu bar (immediately below the File/Edit/etc menus),
      - where all of the various 'tools' are located.
     -->
-		<button>Select</button>
+		<button onclick="wireTool();">Select</button>
 		<button>Wire</button>
 		<button>Delete</button>
 		<button>Export</button>

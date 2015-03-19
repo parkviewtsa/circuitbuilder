@@ -32,4 +32,15 @@ function Circuit () {
     this.components[this.components.length-1].draw();
   }
 
+  this.getComponentById = function (id) {
+    if (this.components[id].id == id) {
+      return this.components[id];
+    } else {
+      for (i=0; i<this.components.length; i++) {
+        if (this.components[i].id == id) return this.components[i];
+      }
+      return null;
+    }
+  }
+
 }

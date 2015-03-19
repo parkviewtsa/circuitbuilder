@@ -2,7 +2,6 @@ function dragDropSetup () {
 
   var dropZoneOne = document.querySelector('#drop-target-one');
   var dragElements = document.querySelectorAll('#drag-elements li');
-  var dragCoords = {x: 0, y: 0}
   var elementDragged = null;
 
   for (var i = 0; i < dragElements.length; i++) {
@@ -42,10 +41,6 @@ function dragDropSetup () {
   });
 
   // Event listener to get the mouse coordinates
-  dropZoneOne.addEventListener('mousemove', function (e) {
-    dragCoords.x = e.clientX;
-    dragCoords.y = e.clientY;
-  });
 
   // Event Listener for when the dragged element dropped in the drop zone.
   dropZoneOne.addEventListener('drop', function(e) {
@@ -56,7 +51,10 @@ function dragDropSetup () {
     //this.innerHTML = "Dropped " + e.dataTransfer.getData('text');
 
     circuit.addNew(e.dataTransfer.getData('text'),
-      renderer.getRealCoords(dragCoords));
+      renderer.getRealCoords({
+        x: e.clientX,
+        y: e.clientY
+      }));
 
     elementDragged = null;
 
