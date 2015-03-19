@@ -1,10 +1,11 @@
 function Wire (x1, y1, x2, y2, rot1, rot2) {
 
-  this.draw = function (x1, y1, x2, y2, rotation) {
+  this.draw = function () {
     var width = Math.abs(x1 - x2);
     var height = Math.abs(y1 - y2);
     var pos_x = Math.min(x1, x2);
     var pos_y = Math.min(y1, y2);
+    var rotation = rot1 - rot2;
 
     // Find a coterminal angle in the range (-pi, pi].
     while (rotation > 2) {

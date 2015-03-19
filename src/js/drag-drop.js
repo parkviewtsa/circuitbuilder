@@ -53,7 +53,7 @@ function dragDropSetup () {
     if (e.stopPropagation) e.stopPropagation();
 
     this.className = "";
-    this.innerHTML = "Dropped " + e.dataTransfer.getData('text');
+    //this.innerHTML = "Dropped " + e.dataTransfer.getData('text');
 
     circuit.addNew(e.dataTransfer.getData('text'),
       renderer.getRealCoords(dragCoords));

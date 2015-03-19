@@ -11,6 +11,8 @@ function Component (name, id, x, y) {
   this.draw = function () {
     if (this.symbol != null) {
       this.g.innerHTML = this.symbol.getElementById('main').innerHTML;
+    } else {
+      this.g.innerHTML = document.getElementById('test').innerHTML;
     }
     // TODO buggy
     this.g.setAttribute('style',
