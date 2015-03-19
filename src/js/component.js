@@ -18,22 +18,23 @@ function Component (name, id, x, y) {
     y: 0
   };
 
+  if (this.symbol != null) {
+    this.g.innerHTML = this.symbol.getElementById('main').innerHTML;
+  } else {
+    this.g.innerHTML = document.getElementById('test').innerHTML;
+  }
+  this.g.classList.add('component');
+  this.g.classList.add(this.name);
+  var id = this.id;
+  this.g.onclick = function (e) {
+    componentOnclick(id, e);
+  }
+
   this.draw = function () {
-    if (this.symbol != null) {
-      this.g.innerHTML = this.symbol.getElementById('main').innerHTML;
-    } else {
-      this.g.innerHTML = document.getElementById('test').innerHTML;
-    }
+    console.log("redrawn");
     this.g.setAttribute('style',
       'transform:rotate(' + this.orientation * 90 + 'deg) ' +
       'translate('+ (this.xPos-this.width/2) + 'px, ' + (this.yPos-this.height/2) + 'px);'
     );
-    this.g.classList.add('component');
-    this.g.classList.add(this.name);
-    var id = this.id;
-    this.g.onclick = function () {
-      componentOnclick(id);
-      console.log("clicked");
-    }
   }
 }
